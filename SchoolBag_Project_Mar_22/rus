@@ -1,0 +1,19 @@
+Login pana user a find pani avaroda detail a madum update pananum
+
+
+
+<div class="text-center">
+                    <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png"
+                        class="pic img-circle img-thumbnail rounded-circle z-depth-2" data-holder-rendered="true"
+                        alt="avatar">
+                    <h6>Upload a different photo...</h6>
+                    <form action="/upload" method="POST" enctype="multipart/form-data">
+                        <div class="custom-file">
+                            <input type="file" name="file" id="file" class="custom-file-input">
+                            <label for="file" class="custom-file-label">Choose File</label>
+                        </div>
+                        <input type="submit" value="Submit" class="btn btn-primary btn-block">
+
+                    </form>
+
+                </div>

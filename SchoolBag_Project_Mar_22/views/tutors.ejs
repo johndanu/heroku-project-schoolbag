@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="app/public/js/jquery-3.2.1.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script> -->
+    ​<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <title>Tutors</title>
+    <%- include('sections/links')%>
+    <style media="screen">
+    footer {
+     position:fixed;
+     left: 0;
+     bottom: 0;
+     width: 100%;
+     background-color: #9C103E;
+     color: white;
+     text-align: center;
+     height: 9%;
+  }
+  a h1:hover
+  {
+    color: #9C103E;
+  }
+    </style>
+  </head>
+  <body>
+    <%- include('sections/navBar',{user:user})%>
+
+    <div style="height:50px;"></div>
+    <nav class="navbar my-2 navbar-expand-sm navbar-dark" style="background-color:black">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/subject" ><i class="fa fa-book"></i> Change subject</a>
+      </li>
+    </ul>
+  </nav>
+    <% sub.tutors.forEach(function (tutors) { %>
+      <div class="col-md-3 cards float-left mt-2 mb-2">
+        <div class="card border-danger mx-sm-1 p-3">
+          <div class="text-info text-center mt-3">
+            <div class="text-danger text-center mt-2">
+              <div class="card-img m-0 p-0">
+        <img src="https://image.freepik.com/free-vector/school-man-teacher-cartoon_24640-55115.jpg" alt="banner" width="100%" class="img-circle" >
+      </div>
+
+                <a style="text-decoration: none;" href="/syllabus" onclick="sendtutid('<%= tutors._id %>','<%=sub._id%>')"><h1><%= tutors.name %></h1></a>
+                <p><%= tutors.tutorid %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    <script type="text/javascript">
+      function sendtutid(tid,sid) {
+        var tutor = String(tid);
+        var subject = String(sid);
+        console.log(subject);
+        var params = "tutor="+tutor+"&subject="+subject;
+        console.log(params);
+        $.post("/tutor",params,function(data){
+          console.log(done);
+        });
+      }
+    </script>
+    <!-- Footer -->
+  <!-- <footer class="page-footer font-small blue">
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+      <a href="https://mdbootstrap.com/"><b> S</b>chool<b>B</b>ag</a>
+    </div>
+  </footer> -->
+  <!-- Footer -->
+  </body>
+</html>

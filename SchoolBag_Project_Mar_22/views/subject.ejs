@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <script src="app/public/js/jquery-3.2.1.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script> -->
+  ​
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <%- include('sections/links')%>
+  <title>Subject</title>
+  <style media="screen">
+    footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: #9C103E;
+      color: white;
+      text-align: center;
+      height: 9%;
+    }
+    a h1:hover{
+      color: #9C103E;
+    }
+  </style>
+</head>
+
+<body>​
+  <%- include('sections/navBar',{user:user, notification:notification})%>
+
+  <div style="height:90px;"></div>
+
+
+  <% subjects.forEach(function (subjects) { %>
+  ​<div class="col-md-3 cards float-left my-2">
+    <div class="card border-danger mx-sm-1 p-3">
+      <div class="text-info text-center mt-3">
+        <div class="text-danger text-center mt-2">
+          <div class="card-img m-0 p-0">
+            <img src="https://static.scientificamerican.com/sciam/cache/file/1DDFE633-2B85-468D-B28D05ADAE7D1AD8_source.jpg?w=590&h=800&D80F3D79-4382-49FA-BE4B4D0C62A5C3ED" alt="banner" width="100%"
+              class="img-circle">
+          </div>
+          <a href="/tutor/<%= subjects._id %>"  style="text-decoration: none;">
+            <h1><%= subjects.subject %></h1>
+          </a>
+          <p >Teachers <span class="badge badge-info"><%= subjects.tutors.length %></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% }) %>
+  ​
+
+</body>
+
+</html>
